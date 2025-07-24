@@ -16,6 +16,11 @@ import { TypewriterEffect } from "@/components/ui/typewriter-effect";
 
 import { Button } from "@/components/ui/moving-border";
 
+// TODO Typewriter effect does not break after second word, typewriter thingy that pulses doesnt follow when new line (ACETERNITY UI TypewriterEffect component)
+// TODO Change coloschemes of components
+// TODO Make the "Hone your Interview now!" sized correctly, fix the border color, (ACETERNITY UI MovingBorder component)
+// TODO create a modal for the signup/login buttons, use ui component from SUPABASE UI, but use shadcn dialog instead of modal popup from base react lowk cleaner
+
 export default function InterviewLensLanding() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
