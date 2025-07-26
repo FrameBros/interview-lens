@@ -31,14 +31,14 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-
+import { ThreeDMarquee } from "@/components/ui/3d-marquee";
 import { Button } from "@/components/ui/moving-border";
 
 // TODO Typewriter effect does not break after second word, typewriter thingy that pulses doesnt follow when new line (ACETERNITY UI TypewriterEffect component)
 // TODO Change coloschemes of components
 // TODO Make the "Hone your Interview now!" sized correctly, fix the border color, (ACETERNITY UI MovingBorder component)
 // TODO Create a 3D Marquee for company tracks
-// TODO  use ui component from SUPABASE UI in dialog buttons, 
+// TODO use ui component from SUPABASE UI in dialog buttons, 
 
 export default function InterviewLensLanding() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -252,10 +252,12 @@ export default function InterviewLensLanding() {
       </div>
       <div id="company-tracks" className="my-20">
         <p className="flex justify-center text-3xl font-semibold">Company Tracks</p>
+          
+
       </div>
       <div id="premium" className=" bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900 text-white relative overflow-hidden ">
         <p className="flex justify-center text-3xl font-semibold my-20  ">Premium</p>
-
+            
       </div>
     </div>
   );
