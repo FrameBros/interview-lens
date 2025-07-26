@@ -242,7 +242,7 @@ export const NavbarLogo = () => {
         width={30}
         height={30}
       />
-      <span className="font-medium text-white dark:text-white">Interview Lens</span>
+      <span className="font-semibold text-white dark:text-white">Interview Lens</span>
     </a>
   );
 };
