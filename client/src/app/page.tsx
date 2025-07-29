@@ -39,7 +39,7 @@ import Login from "@/components/auth/login";
 
 // TODO Typewriter effect does not break after second word, typewriter thingy that pulses doesnt follow when new line (ACETERNITY UI TypewriterEffect component)
 // TODO Change coloschemes of components
-// TODO Make the "Hone your Interview now!" sized correctly, fix the border color, (ACETERNITY UI MovingBorder component)
+// TODO Make the "Hone your Interview now!" sized correctly
 // TODO Create a 3D Marquee for company tracks
 // TODO use ui component from SUPABASE UI in dialog buttons, 
 
