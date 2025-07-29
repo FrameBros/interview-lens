@@ -31,8 +31,11 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { ThreeDMarquee } from "@/components/ui/3d-marquee";
 import { Button } from "@/components/ui/moving-border";
+import Signup from "@/components/auth/signup";
+import Login from "@/components/auth/login";
+
+
 
 // TODO Typewriter effect does not break after second word, typewriter thingy that pulses doesnt follow when new line (ACETERNITY UI TypewriterEffect component)
 // TODO Change coloschemes of components
@@ -96,6 +99,7 @@ export default function InterviewLensLanding() {
                     <DialogTitle>Log In</DialogTitle>
                     <DialogDescription>
                       Log in form goes here.
+                      <Login/>
                     </DialogDescription>
                   </DialogHeader>
                 </DialogContent>
@@ -115,6 +119,7 @@ export default function InterviewLensLanding() {
                     <DialogDescription>
                       {/* Place your signup form or content here */}
                       Sign up form goes here.
+                      <Signup/>
                     </DialogDescription>
                   </DialogHeader>
                 </DialogContent>
@@ -236,6 +241,9 @@ export default function InterviewLensLanding() {
       
         </div>
       </div>
+      {/* 3D component with logos test  TODO:*/ }
+              <div>
+              </div>
       <div className=" bg-gradient-to-br from-purple-900 via-purple-800 to-indigo-900 text-white relative overflow-hidden">
         <div className="mx-30 py-30">
            <Card className = "h-150">
