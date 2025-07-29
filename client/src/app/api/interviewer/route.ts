@@ -9,14 +9,21 @@ config();
 
 const ai = new GoogleGenAI({});
 
+
+
   
-export async function POST(req:NextRequest, res:NextRequest){
+export async function POST(req:NextRequest, res:NextResponse){
+
+    const {question} = await req.json()
+
     const response = await ai.models.generateContent({
     model: "gemini-2.5-flash",
-    contents: "Explain how AI works in a few words",
+    contents: question,
   });
   console.log(response.text);
-  return NextResponse.json({output:response })
+  const message =  response?.candidates?.[0]?.content?.parts?.[0]?.text;
+
+  return NextResponse.json({Answer:message})
 }
 
 
