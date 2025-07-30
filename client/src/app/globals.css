@@ -162,6 +162,7 @@ html {
   justify-content: center;
   align-items: center;
   position: relative;
+}
 .dark {
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -196,6 +197,7 @@ html {
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
@@ -208,3 +210,4 @@ html {
 html {
   scroll-behavior: smooth;
 }
+
