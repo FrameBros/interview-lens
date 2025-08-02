@@ -1,5 +1,19 @@
 import { useState } from "react";
 
+// DONE: Add the missing onerror handler and console.log statements to handleOnRecord function
+// TODO: Configure speech recognition settings (continuous, interimResults, lang, maxAlternatives)
+// TODO: Test the updated function and check browser console for error messages
+// TODO: Check common issues:
+//    - Browser compatibility (Chrome/Edge work best, Firefox doesn't support)
+//    - Microphone permissions granted
+//    - HTTPS requirement (localhost should be fine)
+//    - Silent periods causing auto-stop
+// TODO: If still not working, try setting recognition.continuous = true for longer recording
+// TODO: Once working, integrate transcript results with Supabase database storage
+// TODO: Add visual feedback improvements (loading states, better error messages)
+// TODO: Test with different speech patterns and background noise
+// TODO: Debug console output, fix speech recognition, then move to database integration
+
 {/* Creating all of the interfaces to be used on the function*/}  
 interface  AudioRecorderProps {
     onTranscriptComplete: (transcript: string) => void;
@@ -51,6 +65,10 @@ export default function AudioRecorder(props: AudioRecorderProps) {
     }
 
     const recognition = new SpeechRecognition();
+      //configurations so that the instance is able to work on the browser
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.lang = 'en-US';
 
      recognition.onstart = () => {
       setState(prev => ({ 
@@ -77,6 +95,15 @@ export default function AudioRecorder(props: AudioRecorderProps) {
       props.onTranscriptComplete(transcript);
       props.onRecordingStop?.();
     };
+
+    recognition.onerror = (event) => {
+  console.error('Speech recognition error:', event.error);
+  console.error('Full error event:', event);
+  
+  const errorMsg = `Speech recognition error: ${event.error}`;
+  setState(prev => ({ ...prev, error: errorMsg, isRecording: false, isProcessing: false }));
+  props.onError?.(errorMsg);
+};
 
     // When recording ends
     recognition.onend = () => {
