@@ -13,6 +13,7 @@ function page() {
         setUserAnswer(e.target.value)
     }
 
+
     const SERVER_LINK = "http://localhost:3000"
 
     //const [response, setResponse] = useState('')
@@ -29,7 +30,8 @@ function page() {
                 
             })
             const data = await response.json()
-           console.log(data)
+            console.log(data)
+          setAIResponse(data.Answer)
 
          
 
@@ -53,6 +55,7 @@ function page() {
         
         
         />
+
         <button onClick={getInterviewResponse}
                 style={{
         backgroundColor: '#0070f3', // Bright blue
@@ -67,7 +70,7 @@ function page() {
         transition: 'background 0.2s', // Smooth hover transition
 }}> Submit Response </button>
        
-        
+        {AIResponse}
         
         
 
