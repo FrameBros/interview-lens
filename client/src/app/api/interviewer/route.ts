@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import OpenAI from "openai";
 import { config } from 'dotenv';
 import { GoogleGenAI } from "@google/genai";
+import { SchemaType } from '@google/generative-ai';
 
 config();
 
@@ -69,18 +70,25 @@ Remember: Your job is to simulate the harsh reality of competitive job markets. 
   
 
 
+
+
 export async function POST(req:NextRequest, res:NextResponse){
 
-    const {question} = await req.json()
+    const {answer,question} = await req.json()
+    
 
     const response = await ai.models.generateContent({
     model: "gemini-2.5-flash",
-    contents: `${RECRUITER_PROMPT} now evaluate this response` + question,
-  });
+    contents: `${RECRUITER_PROMPT} now evaluate this response  ${answer} given this question ${question}`
+    });
   console.log(response.text);
   const message =  response?.candidates?.[0]?.content?.parts?.[0]?.text;
 
-  return NextResponse.json({Answer:message})
+  
+
+
+  return NextResponse.json(message)
 }
+
 
 
