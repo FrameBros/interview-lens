@@ -15,7 +15,7 @@ export default function Webspeech() {
 
 
   return (
-<div className = "flex items-center text-xl">
+<div className = " items-center text-center text-2xl">
 
     <h1>THIS IS A TEST :P</h1>
     <AudioRecorder
