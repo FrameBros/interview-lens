@@ -3,10 +3,17 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { supabase } from '@/lib/supabase'
 import { UUID } from 'crypto'
+import Webspeech from "../webspeechapi/page"
+import AudioRecorder from '@/components/features/webspeech'
 
 
 function page() {
     const SERVER_LINK = "http://localhost:3000"
+
+     const handleTranscript = (transcript: string) => {
+        setUserAnswer(transcript)
+    
+  }
 
 
     const [userAnswer, setUserAnswer] = useState("")
@@ -111,6 +118,7 @@ const buttonStyle = {
                 }}
                 type="text"
                 onChange={handleChange}
+                value={userAnswer}
             />
             <button onClick={setInterviewQuestion}> click for question</button>
 
@@ -186,7 +194,14 @@ const buttonStyle = {
         <button onClick={() => handleCategoryClick("conflict")} style={buttonStyle}>Conflict</button>
         <button onClick={() => handleCategoryClick("adaptability")} style={buttonStyle}>Adaptability</button>
         <button onClick={() => handleCategoryClick("teamwork")} style={buttonStyle}>Teamwork</button>
-
+            <div className = "flex items-center text-xl">
+            
+                <h1>THIS IS A TEST :P</h1>
+                <AudioRecorder
+                onTranscriptComplete={handleTranscript}
+                />
+            
+               </div>
         </div>
     )
 }
